@@ -9,7 +9,7 @@ python MyRRT.py simpleWorld.xml
 ### Robot files
 
   The folder `mobile_robots` contain the descriptions of the following robots:
-1. Unicycle: Differential drive robot with two degrees of freedom.
+1. Unicycle: non holonomic robot with two degrees of freedom.
 2. sphero: It is a three degrees of freedom robot. However, it can be forced as
    a six DoF system as done in the samples.
 
