@@ -176,6 +176,14 @@ def myEnvironment(world, dimX, dimY, dimZ, color = [0, 0.85, 0.35, 1], wall_thic
     goal_setup= world.makeRigidObject("goalball")
     goal_setup.geometry().set(goala)
     goal_setup.appearance().setColor(1, 0.07, 0.07, 0.9)
+    
+    start = Geometry3D()
+    starta = getTop(0.05,0.05,0.05,[-1.05,-1,0],0)
+    start_setup= world.makeRigidObject("startball")
+    start_setup.geometry().set(starta)
+    start_setup.appearance().setColor(0.07, 1, 0.07, 0.9)
+
+
 
 
     drd_setup.appearance().setColor(r, g, b, alpha)

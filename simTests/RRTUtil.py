@@ -250,7 +250,7 @@ class Node():
 def closeness(node1,node2):
     px=math.sqrt((node1[0] - node2[0]) ** 2 + (node1[1] - node2[1])** 2)
     rx=abs(node1[2]-node2[2])
-    if px<=0.05 and rx<=0.1:
+    if px<=0.01 and rx<=0.1:
         return True
     else:
         return False

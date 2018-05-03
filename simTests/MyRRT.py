@@ -35,7 +35,7 @@ def collisionchecking(node,obstacleList):
         d = ((dx * dx)/(a*a) + (dy * dy)/(b*b))
         if d <= 1+0.04:
             return True,tr
-    if abs(node[0])>3 or abs(node[1])>3:
+    if abs(node[0])>wx/2 or abs(node[1])>wy/2:
         return True,"Wall"
     return False,""
 
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     simTime = 300
     startTime = time.time()
     oldTime = startTime
-    start=[-1, -1,math.pi/4]
+    start=[-1,-1,math.pi/4]
     goal=[2.5, 2,0]
     goalstartflag = False
     colli_flag,obsName=collisionchecking(goal,obs)
@@ -132,10 +132,13 @@ if __name__ == "__main__":
                 for q in qIt:
                     vis.lock()
                     robot.setConfig(q)
+                    bW.getfruits(world,0.01,0.01,0.01,0,"f",[q[0],q[1],0])
+                    vis.add("path",world)
+                    #bW.getTop(0.01,0.01,0.01,[q[0],q[1],0],0)
                     q2f = [ '{0:.2f}'.format(elem) for elem in q]
                     strng = "Robot configuration: " + str(q2f)
                     vis.addText("textConfig", strng)
-                    time.sleep(0.01)
+                    #time.sleep(0.01)
                     vis.unlock()
         vis.clearText()
 
