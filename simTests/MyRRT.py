@@ -97,11 +97,11 @@ if __name__ == "__main__":
     ## Run the visualizer, which runs in a separate thread
     vis.setWindowTitle("Visualization for kinematic simulation of Unicycle Robot")
     
-    simTime = 300
+    simTime = 3000
     startTime = time.time()
     oldTime = startTime
     start=[-1,-1,math.pi/4]
-    goal=[2.5, 2,0]
+    goal=[2.5,2,math.pi/4]
     goalstartflag = False
     colli_flag,obsName=collisionchecking(goal,obs)
     if colli_flag:
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     #Start the implementation of RRT only if the robot start and goal positions 
     #does not collide with the obstacles in the environment
     if not goalstartflag:
-        rrt = RRT.RRT(world,robot,start, goal,obs,randArea=[-wx/2, wy/2])
+        rrt = RRT.RRT(bW,world,robot,start, goal,obs,randArea=[-wx/2, wy/2])
         path = rrt.Planning()
         print("In Main file",path)
         fqlist=rrt.simulate(path)
